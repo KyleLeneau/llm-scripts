@@ -1,0 +1,28 @@
+info:
+  name: completions-single
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/v1/chat/completions"
+  body:
+    type: json
+    data: |-
+      {
+        "model": "google/gemma-4-26B-A4B-it-qat-q4_0-gguf",
+        "messages": [
+          {
+            "role": "user",
+            "content": "What kind of tasks can you perform as a model?"
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

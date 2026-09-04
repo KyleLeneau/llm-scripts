@@ -6,19 +6,21 @@
 # 4 Bit quantization
 # chat template in bundle
 # 
-# Could try `mlx-community/gemma-4-26B-A4B-it-qat-4bit` for quantization aware training (4 bit aware training)
-# `mlx-community/gemma-4-26b-a4b-it-4bit` is post training compression to 4bit
 
 # --chat-template-args '{"enable_thinking":false}'
 # --chat-template-args '{"reasoning_effort":"medium"}'
 
-uv run mlx_lm.server \
-    --model mlx-community/gemma-4-26B-A4B-it-qat-4bit \
-    --use-default-chat-template \
-    --prefill-step-size 8192 \
-    --trust-remote-code \
-    --log-level DEBUG \
-    --max-tokens 8192
+# https://huggingface.co/google/gemma-4-26B-A4B-it-qat-q4_0-gguf
+
+~/Development/_open_source/llama.cpp/build/bin/llama-server \
+    -hf google/gemma-4-26B-A4B-it-qat-q4_0-gguf \
+    --temp 1.0 \
+    --top-p 0.95 \
+    --top-k 64 \
+    --host 0.0.0.0 \
+    --port 8080 \
+    --metrics
+    
 
 
 # In opencode set this as the provider:

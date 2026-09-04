@@ -1,0 +1,5 @@
+name: orin-agx
+variables:
+  - name: BASE_URL
+    value: http://192.168.0.144:8080
+    description: ""
