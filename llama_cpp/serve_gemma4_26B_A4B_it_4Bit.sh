@@ -20,7 +20,14 @@
     --host 0.0.0.0 \
     --port 8080 \
     --metrics
-    
+
+# benchmark with llama-benchy (https://github.com/eugr/llama-benchy)
+# 
+# uvx llama-benchy \
+#     --base-url http://orin-agx-01:8080/v1 \
+#     --model google/gemma-4-26B-A4B-it-qat-q4_0-gguf \
+#     --depth 0 4096 8192 16384 32768 \
+#     --latency-mode generation
 
 
 # In opencode set this as the provider:
